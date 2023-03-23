@@ -45,28 +45,46 @@ const AddStudentForm = (props) => {
 
   const rollno = props.user.email.substring(0, 9);
   let branchName;
-  const branchCode = rollno.substring(5, 7);
+  const branchCode = rollno.substring(4, 6);
   console.log(branchCode);
-  if (branchCode === '60') {
-    branchName = 'Electronics';
+  if (branchCode === '01') {
+    branchName = 'Bio Chemical Engineering';
   }
-  if (branchCode === '10') {
-    branchName = 'Computer Science';
+  if (branchCode === '02') {
+    branchName = 'Civil Engineering';
   }
-  if (branchCode === '20') {
-    branchName = 'Information Techonology';
+  if (branchCode === '03') {
+    branchName = 'Chemical Techonology';
   }
-  if (branchCode === '30') {
-    branchName = 'Paint Techonology';
+  if (branchCode === '04') {
+    branchName = 'Computer Sceince and Engineering';
   }
-  if (branchCode === '40') {
+  if (branchCode === '05') {
+    branchName = 'Electrical Engineering';
+  }
+  if (branchCode === '06') {
+    branchName = 'Electronics Engineering';
+  }
+  if (branchCode === '07') {
+    branchName = 'Food Technology';
+  }
+  if (branchCode === '08') {
+    branchName = 'Information Technology';
+  }
+  if (branchCode === '09') {
     branchName = 'Leather Technology';
   }
-  if (branchCode === '50') {
-    branchName = 'Chemical Technology';
+  if (branchCode === '10') {
+    branchName = 'Mechanical Engineering';
   }
-  if (branchCode === '70') {
+  if (branchCode === '11') {
     branchName = 'Oil Technology';
+  }
+  if (branchCode === '12') {
+    branchName = 'Plastic Technology';
+  }
+  if (branchCode === '13') {
+    branchName = 'Paint Technology';
   }
 
   const submitionHandler = (event) => {

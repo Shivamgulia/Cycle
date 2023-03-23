@@ -10,7 +10,6 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 import classes from './AddStudentForm.module.css';
 
 const AddStudentForm = (props) => {
-  console.log(props);
   const authCtx = useContext(AuthContext);
   const passwordRef = useRef();
   const history = useHistory();
@@ -46,7 +45,6 @@ const AddStudentForm = (props) => {
   const rollno = props.user.email.substring(0, 9);
   let branchName;
   const branchCode = rollno.substring(4, 6);
-  console.log(branchCode);
   if (branchCode === '01') {
     branchName = 'Bio Chemical Engineering';
   }
@@ -171,7 +169,7 @@ const AddStudentForm = (props) => {
           />
         </div>
         <input type="checkbox" onClick={toggleShowPassword} /> Show Password
-        <div className="centerd">
+        <div className="centered">
           {/* <Recaptcha
             sitekey="6LfOzVQjAAAAACIJVTM3w4iuAePfdEloNCQvRhj-"
             render="explicit"

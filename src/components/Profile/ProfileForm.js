@@ -11,7 +11,8 @@ const ProfileForm = (props) => {
     event.preventDefault();
 
     const newEnteredPassword = newPasswordRef.current.value;
-    const url = 'https://pacific-fortress-54764.herokuapp.com';
+    // const url = 'https://pacific-fortress-54764.herokuapp.com';
+    const url = 'http://64.226.69.16';
 
     fetch(`${url}/users/password/${props.userid}`, {
       method: 'PATCH',

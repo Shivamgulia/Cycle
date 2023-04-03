@@ -85,16 +85,21 @@ const AddStudentForm = (props) => {
     branchName = 'Paint Technology';
   }
 
+  // console.log(branchName);
   const submitionHandler = (event) => {
     event.preventDefault();
     if (isVerified) {
       setIsLoading(true);
+      // console.log('fuck');
+      const Name = props.user.name;
+
       sendRequest({
         student: {
-          name: props.user.name,
+          name: Name.substring(0, Name.length - 31),
           rollno: rollno,
           branch: branchName,
           role: 'student',
+          cycleid: '',
           email: props.user.email,
           password: passwordRef.current.value,
         },

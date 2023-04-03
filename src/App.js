@@ -26,7 +26,8 @@ function App() {
   const loggedIn = authCtx.isLoggedIn;
 
   // const url = 'https://cycle-api.azurewebsites.net/users/login';
-  const url = 'http://64.226.69.16/users/login';
+  // const url = 'http://64.226.69.16/users/login';
+  const url = 'https://app.hbtu.ac.in/users/login';
 
   useEffect(() => {
     if (loggedIn) {

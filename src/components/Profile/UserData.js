@@ -13,8 +13,8 @@ const UserData = (props) => {
       <h3 className="centered">Name : {props.user.name}</h3>
       {!guard && (
         <>
-          {/* <h4 className="centered">Roll No.: {props.user.rollno}</h4> */}
-          {/* <h4 className="centered">Branch : {props.user.branch}</h4> */}
+          <h4 className="centered">Roll No.: {props.user.rollno}</h4>
+          <h4 className="centered">Branch : {props.user.branch}</h4>
           <h4 className="centered">Cycle Id : {cycle}</h4>
         </>
       )}

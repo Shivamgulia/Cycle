@@ -1,5 +1,6 @@
 // const url = 'https://cycle-api.azurewebsites.net';
-const url = 'http://64.226.69.16';
+// const url = 'http://64.226.69.16';
+const url = 'https://app.hbtu.ac.in';
 
 export async function rentCycle(props) {
   let response = await fetch(`${url}/cycles/${props.cycleid}`, {

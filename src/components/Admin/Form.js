@@ -80,8 +80,8 @@ const Form = (props) => {
     <section>
       <form>
         <div className="centered">
-          <Button click={props.printadds}>Add User</Button>
-          <Button click={props.printdels}>Delete User</Button>
+          <Button click={props.printadds}>Add Student</Button>
+          <Button click={props.printdels}>Delete Student</Button>
           <Button click={props.printaddg}>Add Guard</Button>
           <Button click={props.printdelg}>Delete Guard</Button>
         </div>

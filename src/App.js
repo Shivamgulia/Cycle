@@ -17,6 +17,7 @@ function App() {
   const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
   const AuthPage = React.lazy(() => import('./pages/AuthPage'));
   const Rent = React.lazy(() => import('./pages/Rent'));
+  const HowToUse = React.lazy(() => import('./pages/HowToUse'));
   // const Signup = React.lazy(() => import('./pages/Signup'));
 
   const authCtx = useContext(AuthContext);
@@ -104,7 +105,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             {loggedIn && <Redirect to="/mainPage" />}
-            {!loggedIn && <Redirect to="/auth" />}
+            {!loggedIn && <Redirect to="/auth/howtouse" />}
           </Route>
           <Route path="/signup">
             {loggedIn && <Redirect to="/mainPage" />}

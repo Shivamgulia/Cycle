@@ -4,10 +4,13 @@ import AuthContext from '../../store/auth-context';
 
 import logo from '../../resources/gogreen.png';
 import classes from './MainNavigation.module.css';
+import openMenu from '../../resources/OpenMenu.png';
+import closeMenu from '../../resources/closeMenu.png';
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
 
+  const [show, setShow] = useState(false);
   const [one, setOne] = useState(false);
   const [two, setTwo] = useState(false);
 
@@ -35,60 +38,168 @@ const MainNavigation = () => {
         <img src={logo} />
         Green Rides
       </div>
-      <nav className={classes.nav}>
-        <ul>
-          {authCtx.isLoggedIn && (
-            <li>
-              <NavLink to="/mainPage" activeClassName={classes.active}>
-                Main Page
-              </NavLink>
-            </li>
+      <div className={classes.navCont}>
+        <div className={classes.nav}>
+          <ul>
+            {authCtx.isLoggedIn && (
+              <li>
+                <NavLink to="/mainPage" activeClassName={classes.active}>
+                  Main Page
+                </NavLink>
+              </li>
+            )}
+            {authCtx.isLoggedIn && !two && (
+              <li>
+                <NavLink to="/rent" activeClassName={classes.active}>
+                  {one ? 'Return' : 'Rent'}
+                </NavLink>
+              </li>
+            )}
+            {authCtx.isLoggedIn && two && (
+              <li>
+                <NavLink to="/admin" activeClassName={classes.active}>
+                  Admin
+                </NavLink>
+              </li>
+            )}
+            {!authCtx.isLoggedIn && (
+              <li>
+                <NavLink
+                  to="/auth"
+                  activeClassName={classes.active}
+                  onClick={logoutHandler}
+                >
+                  Login
+                </NavLink>
+              </li>
+            )}
+            {!authCtx.isLoggedIn && (
+              <li>
+                <NavLink to="/auth/howtouse" activeClassName={classes.active}>
+                  How to Use
+                </NavLink>
+              </li>
+            )}
+            {authCtx.isLoggedIn && two && (
+              <li>
+                <NavLink to="/cycles" activeClassName={classes.active}>
+                  Cycles
+                </NavLink>
+              </li>
+            )}
+            {authCtx.isLoggedIn && (
+              <li>
+                <NavLink
+                  to="/auth"
+                  activeClassName={classes.active}
+                  onClick={logoutHandler}
+                >
+                  Logout
+                </NavLink>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        {/* Mobile nav */}
+        <div className={classes.mobNav}>
+          {!show && (
+            <div
+              // className={classes.menuButton}
+              onClick={() => {
+                setShow(true);
+              }}
+            >
+              <img
+                src={openMenu}
+                className={classes.menuicon}
+                alt="Open Menu"
+              />
+            </div>
           )}
-          {authCtx.isLoggedIn && !two && (
-            <li>
-              <NavLink to="/rent" activeClassName={classes.active}>
-                {one ? 'Return' : 'Rent'}
-              </NavLink>
-            </li>
+          {/* mobile menu */}
+          {show && (
+            <div className={classes.openMenu}>
+              {show && (
+                <div
+                  className={classes.menuButton}
+                  onClick={() => {
+                    setShow(false);
+                  }}
+                >
+                  <img
+                    src={closeMenu}
+                    className={classes.menuiconclose}
+                    alt="close menu"
+                  />
+                </div>
+              )}
+              <ul className={classes.mobList}>
+                {authCtx.isLoggedIn && (
+                  <li>
+                    <NavLink to="/mainPage" activeClassName={classes.active}>
+                      Main Page
+                    </NavLink>
+                  </li>
+                )}
+                {authCtx.isLoggedIn && !two && (
+                  <li>
+                    <NavLink to="/rent" activeClassName={classes.active}>
+                      {one ? 'Return' : 'Rent'}
+                    </NavLink>
+                  </li>
+                )}
+                {authCtx.isLoggedIn && two && (
+                  <li>
+                    <NavLink to="/admin" activeClassName={classes.active}>
+                      Admin
+                    </NavLink>
+                  </li>
+                )}
+                {!authCtx.isLoggedIn && (
+                  <li>
+                    <NavLink
+                      to="/auth"
+                      activeClassName={classes.active}
+                      onClick={logoutHandler}
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                )}
+                {!authCtx.isLoggedIn && (
+                  <li>
+                    <NavLink
+                      to="/auth/howtouse"
+                      activeClassName={classes.active}
+                    >
+                      How to Use
+                    </NavLink>
+                  </li>
+                )}
+                {authCtx.isLoggedIn && two && (
+                  <li>
+                    <NavLink to="/cycles" activeClassName={classes.active}>
+                      Cycles
+                    </NavLink>
+                  </li>
+                )}
+                {authCtx.isLoggedIn && (
+                  <li>
+                    <NavLink
+                      to="/auth"
+                      activeClassName={classes.active}
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </NavLink>
+                  </li>
+                )}
+              </ul>
+            </div>
           )}
-          {authCtx.isLoggedIn && two && (
-            <li>
-              <NavLink to="/admin" activeClassName={classes.active}>
-                Admin
-              </NavLink>
-            </li>
-          )}
-          {!authCtx.isLoggedIn && (
-            <li>
-              <NavLink
-                to="/auth"
-                activeClassName={classes.active}
-                onClick={logoutHandler}
-              >
-                Login
-              </NavLink>
-            </li>
-          )}
-          {authCtx.isLoggedIn && two && (
-            <li>
-              <NavLink to="/cycles" activeClassName={classes.active}>
-                Cycles
-              </NavLink>
-            </li>
-          )}
-          {authCtx.isLoggedIn && (
-            <li>
-              <NavLink
-                to="/auth"
-                activeClassName={classes.active}
-                onClick={logoutHandler}
-              >
-                Logout
-              </NavLink>
-            </li>
-          )}
-        </ul>
-      </nav>
+        </div>
+      </div>
     </header>
   );
 };

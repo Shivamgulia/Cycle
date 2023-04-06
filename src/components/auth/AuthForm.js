@@ -1,6 +1,8 @@
-import { useState, useRef, useContext } from 'react';
+import { useState, useRef, useContext, Fragment } from 'react';
 import { useHistory } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
+import HowToUse from '../../pages/HowToUse';
+import { Route } from 'react-router-dom';
 
 import AuthContext from '../../store/auth-context';
 import classes from './AuthForm.module.css';
@@ -98,44 +100,51 @@ const AuthForm = () => {
   };
 
   return (
-    <section className={classes.auth}>
-      <h1>Login</h1>
-      <form onSubmit={submitionHandler}>
-        <div className={classes.control}>
-          <label htmlFor="email">Your Email</label>
-          <input type="userName" id="userName" required ref={emailInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            id="password"
-            required
-            ref={passwordInputRef}
-          />
-        </div>
-        <input type="checkbox" onClick={toggleShowPassword} /> Show Password
-        <div className="centered">
-          {/* <Recaptcha
+    <Fragment>
+      <Route path="/auth/howtouse">
+        {/* {loggedIn && <Redirect to="/mainPage" />} */}
+        {/* {!loggedIn && <Signup />} */}
+        <HowToUse />
+      </Route>
+      <section className={classes.auth}>
+        <h1>Login</h1>
+        <form onSubmit={submitionHandler}>
+          <div className={classes.control}>
+            <label htmlFor="email">Your Email</label>
+            <input type="userName" id="userName" required ref={emailInputRef} />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="password">Your Password</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              required
+              ref={passwordInputRef}
+            />
+          </div>
+          <input type="checkbox" onClick={toggleShowPassword} /> Show Password
+          <div className="centered">
+            {/* <Recaptcha
             sitekey="6LfOzVQjAAAAACIJVTM3w4iuAePfdEloNCQvRhj-"
             render="explicit"
             verifyCallback={verifyCallback}
             onloadCallback={load}
           /> */}
-          <ReCAPTCHA
-            sitekey="6LcU0VQjAAAAAHdKzj2Ub7RAbfQCf6QXbgOif9Le"
-            onChange={onChange}
-          />
-        </div>
+            <ReCAPTCHA
+              sitekey="6LcU0VQjAAAAAHdKzj2Ub7RAbfQCf6QXbgOif9Le"
+              onChange={onChange}
+            />
+          </div>
+          <div className={classes.actions}>
+            {!isLoading && <button>Login</button>}
+            {isLoading && <p>Sending Request....</p>}
+          </div>
+        </form>
         <div className={classes.actions}>
-          {!isLoading && <button>Login</button>}
-          {isLoading && <p>Sending Request....</p>}
+          <button onClick={signupHandler}> Sign Up</button>
         </div>
-      </form>
-      <div className={classes.actions}>
-        <button onClick={signupHandler}> Sign Up</button>
-      </div>
-    </section>
+      </section>
+    </Fragment>
   );
 };
 

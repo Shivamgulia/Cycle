@@ -10,7 +10,7 @@ const Signup = () => {
     /* global google */
     google.accounts.id.initialize({
       client_id:
-        '796516456467-obk13f0j5ajcme475pfl3ioecispqv5a.apps.googleusercontent.com',
+        '167791296333-5h3qgvfohl7rpk8r9f2sma5ano492elt.apps.googleusercontent.com',
       callback: handleCallbackResponse,
     });
     google.accounts.id.renderButton(document.getElementById('signupDiv'), {

@@ -114,7 +114,7 @@ const AddStudentForm = (props) => {
       //   role: 'student',
       //   password: passwordRef.current.value,
       // });
-      history.replace('/login');
+      history.replace('/auth');
     } else {
       alert('Verify that you are a human');
     }

@@ -125,13 +125,13 @@ const AuthForm = () => {
           <input type="checkbox" onClick={toggleShowPassword} /> Show Password
           <div className="centered">
             {/* <Recaptcha
-            sitekey="6LfOzVQjAAAAACIJVTM3w4iuAePfdEloNCQvRhj-"
+            sitekey="6LdUKmUlAAAAAH_t6EjIE4ev4OK7Bw0IjQVmkGbq"
             render="explicit"
             verifyCallback={verifyCallback}
             onloadCallback={load}
           /> */}
             <ReCAPTCHA
-              sitekey="6LcU0VQjAAAAAHdKzj2Ub7RAbfQCf6QXbgOif9Le"
+              sitekey="6LdUKmUlAAAAAH_t6EjIE4ev4OK7Bw0IjQVmkGbq"
               onChange={onChange}
             />
           </div>

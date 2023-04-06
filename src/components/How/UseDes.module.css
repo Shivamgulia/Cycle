@@ -1,0 +1,13 @@
+.images1 {
+  /* height: 40rem; */
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 18rem);
+  grid-template-rows: repeat(auto-fit, 40rem);
+  gap: 1rem;
+  margin: 10px;
+}
+
+img {
+  height: 40rem;
+}

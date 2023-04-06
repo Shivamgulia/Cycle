@@ -26,7 +26,13 @@ export default function UseDes() {
       <h1>How to Use Green Rides</h1>
       <ol>
         <li>Download the Green Rides app with the link below.</li>
-        <a href="">Download the App</a>
+        <div className={classes.download}>
+          <a href="">
+            <button class={classes.button56} role="button">
+              Download the App
+            </button>
+          </a>
+        </div>
         <li>
           Installing : locate the downloaded app. Install the app using package
           installer.

@@ -43,17 +43,19 @@ const DeleteCycle = () => {
   }
 
   return (
-    <section className={classes.auth}>
+    <div className={classes.auth}>
       <h1>Delete Cycle</h1>
-      <form onSubmit={submitionHandler}>
-        {!scanComplete && <Scanner scan={addCycleHandler} />}
+      <form onSubmit={submitionHandler} className={classes.cameraform}>
+        {!scanComplete && (
+          <Scanner scan={addCycleHandler} className={classes.camera} />
+        )}
         {scanComplete && <h3>{id}</h3>}
         <div className={classes.actions}>
           {!isLoading && scanComplete && <button>Delete Cycle</button>}
           {isLoading && <p>Sending Request....</p>}
         </div>
       </form>
-    </section>
+    </div>
   );
 };
 

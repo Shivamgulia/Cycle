@@ -24,6 +24,7 @@ const CycleList = (props) => {
             id={cycle.cycleid}
             status={cycle.status}
             stdname={cycle.stdname}
+            stdemail={cycle.email}
           />
         ))}
       </ul>

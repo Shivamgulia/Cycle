@@ -1,8 +1,10 @@
 // const url = 'https://cycle-api.azurewebsites.net';
 // const url = 'http://64.226.69.16';
-const url = 'https://app.hbtu.ac.in';
+// const url = 'https://app.hbtu.ac.in';
+const url = 'https://cycle-modified-api.azurewebsites.net';
 
 export async function rentCycle(props) {
+  console.log(props);
   let response = await fetch(`${url}/cycles/${props.cycleid}`, {
     method: 'GET',
     headers: {
@@ -60,11 +62,25 @@ export async function rentCycle(props) {
   if (props.role === 'student') stat = 'rented';
   if (props.role === 'guard') stat = '';
 
-  // console.log({ status: stat, stdid: user, stdname: name });
+  let email;
+  if (props.role === 'student') email = props.email;
+  if (props.role === 'guard') email = '';
+
+  // console.log({
+  //   status: stat,
+  //   stdid: user,
+  //   stdname: name,
+  //   email: email,
+  // });
 
   response = await fetch(`${url}/cycles/${props.cycleid}`, {
     method: 'PATCH',
-    body: JSON.stringify({ status: stat, stdid: user, stdname: name }),
+    body: JSON.stringify({
+      status: stat,
+      stdid: user,
+      stdname: name,
+      email: email,
+    }),
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + props.token,
@@ -192,5 +208,20 @@ export async function getCycles(props) {
     throw new Error(data.message || 'Could not fetch Cycles.');
   }
 
+  return data;
+}
+
+export async function DeleteStudents(props) {
+  let response = await fetch(`${url}/users/byyear/${props.year}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + props.token,
+    },
+  });
+  let data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch Cycles.');
+  }
   return data;
 }

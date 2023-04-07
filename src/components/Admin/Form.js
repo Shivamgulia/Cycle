@@ -88,6 +88,7 @@ const Form = (props) => {
         <div className="centered">
           <Button click={props.printaddc}>Add Cycle</Button>
           <Button click={props.printdelc}>Delete Cycle</Button>
+          <Button click={props.printdely}>Delete Students for Year</Button>
         </div>
       </form>
     </section>

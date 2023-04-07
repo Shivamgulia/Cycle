@@ -20,6 +20,16 @@ const Rent = (props) => {
   //   console.log(authCtx);
 
   let { sendRequest, status, error } = useHttp(rentCycle, false);
+
+  // console.log({
+  //   token: authCtx.token,
+  //   cycleid: data,
+  //   userid: authCtx.userid + 'userID',
+  //   role: authCtx.role,
+  //   name: authCtx.name,
+  //   email: authCtx.email + 'email',
+  // });
+
   const rentHandler = () => {
     sendRequest({
       token: authCtx.token,
@@ -27,6 +37,7 @@ const Rent = (props) => {
       userid: authCtx.userid,
       role: authCtx.role,
       name: authCtx.name,
+      email: authCtx.email,
     });
     setDone(false);
     setData(null);
@@ -34,6 +45,7 @@ const Rent = (props) => {
     localStorage.removeItem('scandata');
     if (!two && error) authCtx.addCycle(data);
   };
+
   useEffect(() => {
     setData(localStorage.getItem('scandata'));
     setDone(localStorage.getItem('scaned'));

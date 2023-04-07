@@ -16,12 +16,11 @@ import thirteen from '../../resources/how/13_cycleIsRented.jpg';
 export default function UseDes() {
   return (
     <div>
-      <h1>About</h1>
       <p>
-        Green rides is an application developed to make the renting of cycles
-        easier just by scanning the qr code present on cycles. Students can rent
-        the cycles from any stand and then return it to the guard present in any
-        stand.
+        <h1>Green rides </h1> is an application developed to make the renting of
+        cycles easier just by scanning the qr code present on cycles. Students
+        can rent the cycles from any stand and then return it to the guard
+        present in any stand.
       </p>
       <h1>How to Use Green Rides</h1>
       <ol>

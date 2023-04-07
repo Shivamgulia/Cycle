@@ -9,6 +9,7 @@ import DeleteStudent from '../components/Admin/DeleteStudent';
 import Form from '../components/Admin/Form';
 
 import classes from './AdminPage.module.css';
+import DeleteYear from '../components/Admin/DeleteYear';
 
 const AdminPage = () => {
   const [addst, setAddst] = useState(false);
@@ -17,28 +18,31 @@ const AdminPage = () => {
   const [delgu, setDelgu] = useState(false);
   const [addcy, setAddcy] = useState(false);
   const [delcy, setDelcy] = useState(false);
+  const [delye, showDely] = useState(false);
   // const [showForm, setShowForm] = useState(true);
 
   const adds = () => {
     if (addst) setAddst(false);
     if (!addst) {
-      setAddst(true);
+      setAddst(!addst);
       setDelst(false);
       setAddgu(false);
       setDelgu(false);
       setAddcy(false);
       setDelcy(false);
+      showDely(false);
     }
   };
   const dels = () => {
     if (delst) setDelst(false);
     if (!delst) {
       setAddst(false);
-      setDelst(true);
+      setDelst(!delst);
       setAddgu(false);
       setDelgu(false);
       setAddcy(false);
       setDelcy(false);
+      showDely(false);
     }
   };
   const addg = () => {
@@ -46,10 +50,11 @@ const AdminPage = () => {
     if (!addgu) {
       setAddst(false);
       setDelst(false);
-      setAddgu(true);
+      setAddgu(!addgu);
       setDelgu(false);
       setAddcy(false);
       setDelcy(false);
+      showDely(false);
     }
   };
   const delg = () => {
@@ -58,9 +63,10 @@ const AdminPage = () => {
       setAddst(false);
       setDelst(false);
       setAddgu(false);
-      setDelgu(true);
+      setDelgu(!delgu);
       setAddcy(false);
       setDelcy(false);
+      showDely(false);
     }
   };
   const addc = () => {
@@ -70,8 +76,9 @@ const AdminPage = () => {
       setDelst(false);
       setAddgu(false);
       setDelgu(false);
-      setAddcy(true);
+      setAddcy(!addcy);
       setDelcy(false);
+      showDely(false);
     }
   };
   const delc = () => {
@@ -82,7 +89,20 @@ const AdminPage = () => {
       setAddgu(false);
       setDelgu(false);
       setAddcy(false);
-      setDelcy(true);
+      setDelcy(!delcy);
+      showDely(false);
+    }
+  };
+  const dely = () => {
+    if (delgu) setDelgu(false);
+    if (!delgu) {
+      setAddst(false);
+      setDelst(false);
+      setAddgu(false);
+      setDelgu(false);
+      setAddcy(false);
+      setDelcy(false);
+      showDely(!delye);
     }
   };
 
@@ -95,6 +115,7 @@ const AdminPage = () => {
         {delgu && <DeleteGuard />}
         {addcy && <AddCycle />}
         {delcy && <DeleteCycle />}
+        {delye && <DeleteYear />}
 
         {
           <Form
@@ -104,6 +125,7 @@ const AdminPage = () => {
             printdelg={delg}
             printaddc={addc}
             printdelc={delc}
+            printdely={dely}
           />
         }
       </div>

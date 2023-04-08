@@ -4,11 +4,13 @@ import useHttp from '../hooks/use-http';
 import { DeleteStudents } from '../lib/api';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import AuthContext from '../../store/auth-context';
+import ListRented from './ListRented';
 
 const DeleteYear = () => {
   const yearref = useRef();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [showList, setShowList] = useState(false);
   //   const [list, setList] = useState([]);
 
   const { sendRequest, data, status, error } = useHttp(DeleteStudents, false);
@@ -17,18 +19,23 @@ const DeleteYear = () => {
   //     setList(createYearList());
   //   }, [isLoading]);
 
+  function removeList() {
+    setShowList(false);
+  }
+
   const submitionHandler = (event) => {
     event.preventDefault();
     setIsLoading(true);
-
     const value = Number(yearref.current.value);
     const year = value % 100;
+    console.log(year);
     sendRequest({
       year: year,
       token: AuthContext.token,
     });
 
     setIsLoading(false);
+    setShowList(true);
   };
 
   if (status === 'pending') {
@@ -74,6 +81,9 @@ const DeleteYear = () => {
           {isLoading && <p>Sending Request....</p>}
         </div>
       </form>
+      {showList && data && data.length > 0 && (
+        <ListRented list={data} removeOverlay={removeList} />
+      )}
     </section>
   );
 };

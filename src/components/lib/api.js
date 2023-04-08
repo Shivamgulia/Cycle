@@ -212,6 +212,7 @@ export async function getCycles(props) {
 }
 
 export async function DeleteStudents(props) {
+  console.log(props.year);
   let response = await fetch(`${url}/users/byyear/${props.year}`, {
     method: 'DELETE',
     headers: {
@@ -223,5 +224,6 @@ export async function DeleteStudents(props) {
   if (!response.ok) {
     throw new Error(data.message || 'Could not fetch Cycles.');
   }
+  console.log(data);
   return data;
 }

@@ -1,4 +1,5 @@
 import classes from './UseDes.module.css';
+import apk from '../../resources/greenrides.apk';
 import one from '../../resources/how/1_locateDownload.jpg';
 import two from '../../resources/how/2_installUsingPackageInstaller.jpg';
 import three from '../../resources/how/3_ClickInstall.jpg';
@@ -26,7 +27,7 @@ export default function UseDes() {
       <ol>
         <li>Download the Green Rides app with the link below.</li>
         <div className={classes.download}>
-          <a href="">
+          <a href={apk} download>
             <button class={classes.button56} role="button">
               Download the App
             </button>

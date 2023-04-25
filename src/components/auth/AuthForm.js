@@ -48,7 +48,7 @@ const AuthForm = () => {
       // const url = 'https://cycle-api.azurewebsites.net/users/login'; //login send req url
       // const url = 'http://64.226.69.16/users/login';
       // const url = 'https://cycle-modified-api.azurewebsites.net/users/login';
-      const url = 'https://app.hbtu.ac.in/users/login';
+      const url = `${process.env.REACT_APP_URL}/users/login`;
 
       fetch(url, {
         method: 'POST',

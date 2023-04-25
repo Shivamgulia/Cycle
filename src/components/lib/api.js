@@ -1,6 +1,6 @@
 // const url = 'https://cycle-api.azurewebsites.net';
 // const url = 'http://64.226.69.16';
-const url = 'https://app.hbtu.ac.in';
+const url = `${process.env.REACT_APP_URL}`;
 // const url = 'https://cycle-modified-api.azurewebsites.net';
 
 export async function rentCycle(props) {

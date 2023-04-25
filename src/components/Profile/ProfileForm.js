@@ -13,7 +13,7 @@ const ProfileForm = (props) => {
     const newEnteredPassword = newPasswordRef.current.value;
     // const url = 'https://pacific-fortress-54764.herokuapp.com';
     // const url = 'http://64.226.69.16';
-    const url = 'https://app.hbtu.ac.in';
+    const url = `${process.env.REACT_APP_URL}`;
 
     fetch(`${url}/users/password/${props.userid}`, {
       method: 'PATCH',
